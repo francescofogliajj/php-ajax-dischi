@@ -4,8 +4,10 @@ const axios = require('axios').default;
 var app = new Vue({
 
   el: "#root",
+  
   data: {
     discs: [],
+    genre: ""
   },
 
   mounted: function() {
@@ -15,6 +17,26 @@ var app = new Vue({
       .then( result => {
         this.discs = result.data;
     });
+
+  },
+
+  methods: {
+
+    filter: function() {
+
+      axios
+        .get("server.php",
+          {
+            params: {
+              genre: this.genre
+            }
+          }
+        )
+        .then( result => {
+          this.discs = result.data;
+      });
+
+    }
 
   }
 

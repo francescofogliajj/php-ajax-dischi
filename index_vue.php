@@ -11,7 +11,21 @@
 
     <div id="root">
 
-      <?php include __DIR__ . "/partials/header.php"; ?>
+      <header>
+        <div class="container">
+          <img src="https://i.pinimg.com/originals/93/1a/6d/931a6dd7c814effe6e238bbdf3e0197d.jpg" alt="spotify-logo">
+          <div>
+            <select name="genre" v-model="genre">
+              <option value="">Tutti</option>
+              <option value="Rock">Rock</option>
+              <option value="Pop">Pop</option>
+              <option value="Jazz">Jazz</option>
+              <option value="Metal">Metal</option>
+            </select>
+            <button type="button" name="button" @click="filter">Filtra</button>
+          </div>
+        </div>
+      </header>
 
       <main>
         <div class="container">
@@ -20,6 +34,7 @@
             <h2>{{ disc.title }}</h2>
             <h3>{{ disc.author }}</h3>
             <h4>{{ disc.year }}</h4>
+            <h5>{{ disc.genre }}</h5>
           </div>
         </div>
       </main>
